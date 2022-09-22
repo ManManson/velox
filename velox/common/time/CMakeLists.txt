@@ -14,3 +14,9 @@
 
 add_library(velox_time Timer.cpp CpuWallTimer.cpp)
 target_link_libraries(velox_time ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_time OPTIONAL)
+set(velox_time_headers
+    CpuWallTimer.h
+    Timer.h)
+install(FILES ${velox_time_headers} DESTINATION "include/velox/common/time")

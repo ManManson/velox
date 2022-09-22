@@ -14,3 +14,10 @@
 add_library(velox_presto_types JsonType.cpp)
 
 target_link_libraries(velox_presto_types velox_memory velox_expression)
+
+install(TARGETS velox_presto_types OPTIONAL)
+set(velox_presto_types_headers
+    HyperLogLogType.h
+    JsonType.h
+    TimestampWithTimeZoneType.h)
+install(FILES ${velox_presto_types_headers} DESTINATION "include/velox/functions/prestosql/types")

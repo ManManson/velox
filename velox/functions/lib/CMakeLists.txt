@@ -35,3 +35,22 @@ endif()
 if(${VELOX_ENABLE_BENCHMARKS})
   add_subdirectory(benchmarks)
 endif()
+
+install(TARGETS velox_functions_lib OPTIONAL)
+set(velox_functions_lib_headers
+    ApproxMostFrequentStreamSummary.h
+    ArrayBuilder.h
+    ComparatorUtil.h
+    DateTimeFormatter.h
+    DateTimeFormatterBuilder.h
+    DynamicFlatVector.h
+    JodaDateTime.h
+    KllSketch-inl.h
+    KllSketch.h
+    LambdaFunctionUtil.h
+    Re2Functions.h
+    RegistrationHelpers.h
+    StringEncodingUtils.h
+    SubscriptUtil.h
+    ZetaDistribution.h)
+install(FILES ${velox_functions_lib_headers} DESTINATION "include/velox/functions/lib")

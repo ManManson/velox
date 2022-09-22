@@ -29,3 +29,6 @@ add_library(
 target_link_libraries(velox_dwio_dwrf_proto protobuf::libprotobuf)
 target_include_directories(velox_dwio_dwrf_proto
                            PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/../../../../)
+
+install(TARGETS velox_dwio_dwrf_proto OPTIONAL)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/dwrf_proto.pb.h" ${VELOX_DWIO_ORC_PROTO_HDRS} ${VELOX_DWIO_DWRF_PROTO_HDRS} DESTINATION "include/velox/dwio/dwrf/proto" OPTIONAL)

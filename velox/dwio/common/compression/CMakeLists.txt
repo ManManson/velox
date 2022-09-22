@@ -14,3 +14,8 @@
 
 add_library(velox_dwio_common_compression LzoDecompressor.cpp)
 target_link_libraries(velox_dwio_common_compression ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_dwio_common_compression OPTIONAL)
+set(velox_dwio_common_compression
+    LzoDecompressor.h)
+install(FILES ${velox_dwio_common_compression} DESTINATION "include/velox/dwio/common/compression")

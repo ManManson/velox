@@ -29,3 +29,11 @@ target_link_libraries(
 if(CMAKE_COMPILER_IS_GNUCC AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9)
   target_link_libraries(velox_dwio_common_test_utils stdc++fs)
 endif()
+
+install(TARGETS velox_dwio_common_test_utils OPTIONAL)
+set(velox_dwio_common_test_utils_headers
+    BatchMaker.h
+    DataFiles.h
+    FilterGenerator.h
+    MapBuilder.h)
+install(FILES ${velox_dwio_common_test_utils_headers} DESTINATION "include/velox/dwio/common/tests/utils")

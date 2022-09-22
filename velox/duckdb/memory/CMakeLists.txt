@@ -19,3 +19,8 @@ target_link_libraries(velox_duckdb_allocator velox_dwio_common duckdb ${FMT})
 if(NOT VELOX_DISABLE_GOOGLETEST)
   target_link_libraries(velox_duckdb_allocator gtest)
 endif()
+
+install(TARGETS velox_duckdb_allocator OPTIONAL)
+set(velox_duckdb_allocator_headers
+    Allocator.h)
+install(FILES ${velox_duckdb_allocator_headers} DESTINATION "include/velox/duckdb/memory")

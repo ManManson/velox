@@ -38,3 +38,23 @@ target_link_libraries(
   ${LZO}
   ${ZSTD}
   ${ZLIB_LIBRARIES})
+
+install(TARGETS velox_dwio_dwrf_writer OPTIONAL)
+set(velox_dwio_dwrf_writer_headers
+    ColumnWriter.h
+    DictionaryEncodingUtils.h
+    EntropyEncodingSelector.h
+    FlatMapColumnWriter.h
+    FlushPolicy.h
+    IndexBuilder.h
+    IntegerDictionaryEncoder.h
+    LayoutPlanner.h
+    RatioTracker.h
+    StatisticsBuilder.h
+    StatisticsBuilderUtils.h
+    StringDictionaryEncoder.h
+    Writer.h
+    WriterBase.h
+    WriterContext.h
+    WriterSink.h)
+install(FILES ${velox_dwio_dwrf_writer_headers} DESTINATION "include/velox/dwio/dwrf/writer")

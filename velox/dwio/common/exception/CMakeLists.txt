@@ -16,3 +16,9 @@ add_library(velox_dwio_common_exception Exception.cpp Exceptions.cpp)
 
 target_link_libraries(velox_dwio_common_exception ${FOLLY_WITH_DEPENDENCIES}
                       glog::glog)
+
+install(TARGETS velox_dwio_common_exception OPTIONAL)
+set(velox_dwio_common_exception_headers
+    Exception.h
+    Exceptions.h)
+install(FILES ${velox_dwio_common_exception_headers} DESTINATION "include/velox/dwio/common/exception")

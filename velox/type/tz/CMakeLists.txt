@@ -18,3 +18,5 @@ add_library(velox_type_tz TimeZoneMap.h TimeZoneDatabase.cpp TimeZoneMap.cpp)
 
 target_link_libraries(velox_type_tz ${Boost_REGEX_LIBRARIES} ${FMT}
                       ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_type_tz OPTIONAL)

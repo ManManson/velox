@@ -22,3 +22,10 @@ endif()
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_codegen OPTIONAL)
+set(velox_codegen_headers
+    Codegen-Stubs.h
+    Codegen.h
+    platform-support.h)
+install(FILES ${velox_codegen_headers} DESTINATION "include/velox/codegen")

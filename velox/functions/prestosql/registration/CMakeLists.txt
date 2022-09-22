@@ -32,3 +32,8 @@ target_link_libraries(velox_functions_prestosql velox_functions_prestosql_impl)
 
 set_property(TARGET velox_functions_prestosql PROPERTY JOB_POOL_COMPILE
                                                        high_memory_pool)
+
+install(TARGETS velox_functions_prestosql OPTIONAL)
+set(velox_functions_prestosql_headers
+    RegistrationFunctions.h)
+install(FILES ${velox_functions_prestosql_headers} DESTINATION "include/velox/functions/prestosql/registration")

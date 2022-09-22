@@ -34,3 +34,18 @@ target_link_libraries(velox_memory velox_flag_definitions velox_common_base
 if(NOT VELOX_DISABLE_GOOGLETEST)
   target_link_libraries(velox_memory gtest)
 endif()
+
+install(TARGETS velox_memory OPTIONAL)
+set(velox_memory_headers
+    AllocationPool.h
+    ByteStream.h
+    CompactDoubleList.h
+    HashStringAllocator.h
+    MappedMemory.h
+    Memory.h
+    MemoryUsage.h
+    MemoryUsageTracker.h
+    MmapAllocator.h
+    MmapArena.h
+    StreamArena.h)
+install(FILES ${velox_memory_headers} DESTINATION "include/velox/common/memory")

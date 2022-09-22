@@ -59,3 +59,53 @@ target_link_libraries(
   Boost::regex
   ${FOLLY_WITH_DEPENDENCIES}
   glog::glog)
+
+install(TARGETS velox_dwio_common OPTIONAL)
+set(velox_dwio_common_headers
+    Adaptor.h
+    BitConcatenation.h
+    BufferUtil.h
+    BufferedInput.h
+    CacheInputStream.h
+    CachedBufferedInput.h
+    ChainedBuffer.h
+    Closeable.h
+    ColumnLoader.h
+    ColumnSelector.h
+    ColumnVisitors.h
+    Common.h
+    DataBuffer.h
+    DataSink.h
+    DecoderUtil.h
+    DirectDecoder.h
+    ErrorTolerance.h
+    FilterNode.h
+    FlushPolicy.h
+    FormatData.h
+    InputStream.h
+    IntCodecCommon.h
+    IntDecoder.h
+    IoStatistics.h
+    MemoryInputStream.h
+    MetricsLog.h
+    Options.h
+    RandGen.h
+    Reader.h
+    ReaderFactory.h
+    Retry.h
+    ScanSpec.h
+    SeekableInputStream.h
+    SelectiveColumnReader.h
+    SelectiveColumnReaderInternal.h
+    SelectiveFloatingPointColumnReader.h
+    SelectiveIntegerColumnReader.h
+    SelectiveStructColumnReader.h
+    Statistics.h
+    StreamIdentifier.h
+    StreamUtil.h
+    TypeUtil.h
+    TypeUtils.h
+    TypeWithId.h
+    )
+install(FILES ${velox_dwio_common_headers} DESTINATION "include/velox/dwio/common")
+install(FILES "wrap/zero-copy-stream-wrapper.h" DESTINATION "include/velox/dwio/common/wrap") 

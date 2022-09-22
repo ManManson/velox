@@ -19,3 +19,9 @@ target_link_libraries(velox_functions_json velox_exception
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_functions_json OPTIONAL)
+set(velox_functions_json_headers
+    JsonExtractor.h
+    JsonPathTokenizer.h)
+install(FILES ${velox_functions_json_headers} DESTINATION "include/velox/functions/prestosql/json")

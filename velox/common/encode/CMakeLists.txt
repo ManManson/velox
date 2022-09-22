@@ -14,3 +14,10 @@
 
 add_library(velox_encode Base64.cpp)
 target_link_libraries(velox_encode ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_encode OPTIONAL)
+set(velox_encode_headers
+    Base64.h
+    Coding.h
+    UInt128.h)
+install(FILES ${velox_encode_headers} DESTINATION "include/velox/common/encode")

@@ -19,3 +19,8 @@ target_link_libraries(velox_duckdb_functions velox_duckdb_conversion velox_core
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_duckdb_functions OPTIONAL)
+set(velox_duckdb_functions_headers
+    DuckFunctions.h)
+install(FILES ${velox_duckdb_functions_headers} DESTINATION "include/velox/duckdb/functions")

@@ -20,3 +20,5 @@ add_library(velox_window OBJECT CumeDist.cpp Rank.cpp RowNumber.cpp
 
 target_link_libraries(velox_window velox_buffer velox_exec
                       ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_window OBJECTS DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)

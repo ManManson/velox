@@ -44,3 +44,19 @@ target_link_libraries(
   velox_tpch_connector
   velox_presto_serializer
   velox_functions_prestosql)
+
+install(TARGETS velox_temp_path velox_exec_test_lib OPTIONAL)
+set(velox_exec_test_lib_headers
+    AssertQueryBuilder.h
+    Cursor.h
+    HiveConnectorTestBase.h
+    MergeTestBase.h
+    OperatorTestBase.h
+    PlanBuilder.h
+    QueryAssertions.h
+    RowContainerTestBase.h
+    SumNonPODAggregate.h
+    TempDirectoryPath.h
+    TempFilePath.h
+    TpchQueryBuilder.h)
+install(FILES ${velox_exec_test_lib_headers} DESTINATION "include/velox/exec/tests/utils")

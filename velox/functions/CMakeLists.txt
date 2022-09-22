@@ -28,3 +28,12 @@ endif()
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_function_registry OPTIONAL)
+set(velox_function_registry_headers
+    FunctionRegistry.h
+    Macros.h
+    Registerer.h
+    UDFOutputString.h
+    Udf.h)
+install(FILES ${velox_function_registry_headers} DESTINATION "include/velox/functions")

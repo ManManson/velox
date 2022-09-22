@@ -81,3 +81,64 @@ endif()
 if(${VELOX_ENABLE_BENCHMARKS})
   add_subdirectory(benchmarks)
 endif()
+
+install(TARGETS velox_exec OPTIONAL)
+set(velox_exec_headers
+    Aggregate.h
+    AggregateFunctionRegistry.h
+    AggregationHook.h
+    AggregationMasks.h
+    AssignUniqueId.h
+    CallbackSink.h
+    ContainerRowSerde.h
+    CrossJoinBuild.h
+    CrossJoinProbe.h
+    Driver.h
+    EnforceSingleRow.h
+    Exchange.h
+    FilterProject.h
+    GroupId.h
+    GroupingSet.h
+    HashAggregation.h
+    HashBitRange.h
+    HashBuild.h
+    HashJoinBridge.h
+    HashPartitionFunction.h
+    HashProbe.h
+    HashTable.h
+    JoinBridge.h
+    Limit.h
+    LocalPartition.h
+    LocalPlanner.h
+    Merge.h
+    MergeJoin.h
+    MergeSource.h
+    Operator.h
+    OperatorUtils.h
+    OrderBy.h
+    PartitionedOutput.h
+    PartitionedOutputBufferManager.h
+    PlanNodeStats.h
+    RoundRobinPartitionFunction.h
+    RowContainer.h
+    Spill.h
+    SpillOperatorGroup.h
+    Spiller.h
+    Split.h
+    StreamingAggregation.h
+    TableScan.h
+    TableWriter.h
+    Task.h
+    TaskStats.h
+    TaskStructs.h
+    TopN.h
+    TreeOfLosers.h
+    Unnest.h
+    UnorderedStreamReader.h
+    Values.h
+    VectorHasher-inl.h
+    VectorHasher.h
+    Window.h
+    WindowFunction.h
+    WindowPartition.h)
+install(FILES ${velox_exec_headers} DESTINATION "include/velox/exec")

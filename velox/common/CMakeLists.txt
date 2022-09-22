@@ -21,3 +21,6 @@ add_subdirectory(process)
 add_subdirectory(serialization)
 add_subdirectory(time)
 add_subdirectory(testutil)
+
+install(FILES "future/VeloxPromise.h" DESTINATION "include/velox/common/future")
+install(FILES "strings/ByteStream.h" DESTINATION "include/velox/common/strings")

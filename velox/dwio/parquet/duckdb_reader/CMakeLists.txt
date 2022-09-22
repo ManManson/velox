@@ -16,3 +16,9 @@ add_library(velox_dwio_duckdb_parquet_reader ParquetReader.cpp)
 
 target_link_libraries(velox_dwio_duckdb_parquet_reader velox_duckdb_allocator
                       velox_dwio_common velox_duckdb_conversion duckdb ${FMT})
+
+install(TARGETS velox_dwio_duckdb_parquet_reader OPTIONAL)
+set(velox_dwio_duckdb_parquet_reader_headers
+    ParquetReader.h
+    Statistics.h)
+install(FILES ${velox_dwio_duckdb_parquet_reader_headers} DESTINATION "include/velox/dwio/parquet/duckdb_reader")

@@ -39,3 +39,34 @@ add_dependencies(velox_dwio_dwrf_common velox_dwio_dwrf_proto)
 target_link_libraries(
   velox_dwio_dwrf_common velox_common_base velox_dwio_common
   velox_dwio_common_compression velox_dwio_dwrf_proto velox_caching)
+
+install(TARGETS velox_dwio_dwrf_common OPTIONAL)
+set(velox_dwio_dwrf_common_headers
+    ByteRLE.h
+    Checksum.h
+    Common.h
+    Compression.h
+    CompressionBufferPool.h
+    Config.h
+    DataBufferHolder.h
+    DecoderUtil.h
+    Decryption.h
+    EncoderUtil.h
+    Encryption.h
+    EncryptionCommon.h
+    EncryptionSpecification.h
+    FileMetadata.h
+    FloatingPointDecoder.h
+    IntEncoder.h
+    NextVisitor.h
+    OutputStream.h
+    PagedInputStream.h
+    PagedOutputStream.h
+    RLEv1.h
+    RLEv2.h
+    Range.h
+    Statistics.h)
+install(FILES ${velox_dwio_dwrf_common_headers} DESTINATION "include/velox/dwio/dwrf/common")
+install(FILES "wrap/coded-stream-wrapper.h"
+              "wrap/dwrf-proto-wrapper.h"
+              "wrap/orc-proto-wrapper.h" DESTINATION "include/velox/dwio/dwrf/common/wrap")

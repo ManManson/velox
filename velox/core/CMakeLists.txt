@@ -28,3 +28,17 @@ target_link_libraries(
   velox_serialization
   velox_vector
   ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_config velox_core OPTIONAL)
+set(velox_core_headers
+    Context.h
+    CoreTypeSystem.h
+    Expressions.h
+    ITypedExpr.h
+    Metaprogramming.h
+    PlanFragment.h
+    PlanNode.h
+    QueryConfig.h
+    QueryCtx.h
+    SimpleFunctionMetadata.h)
+install(FILES ${velox_core_headers} DESTINATION "include/velox/core")

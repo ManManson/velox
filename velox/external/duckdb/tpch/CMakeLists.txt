@@ -10,3 +10,5 @@ add_subdirectory(dbgen)
 
 add_library(tpch_extension STATIC tpch-extension.cpp)
 target_link_libraries(tpch_extension dbgen)
+
+install(TARGETS tpch_extension OPTIONAL)

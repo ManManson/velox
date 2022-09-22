@@ -28,3 +28,5 @@ add_library(
   rng64.cpp
   speed_seed.cpp
   text.cpp)
+
+install(TARGETS dbgen OPTIONAL)

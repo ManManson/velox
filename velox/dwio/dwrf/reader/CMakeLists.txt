@@ -37,3 +37,30 @@ add_library(
 target_link_libraries(
   velox_dwio_dwrf_reader velox_dwio_common velox_dwio_dwrf_common velox_caching
   velox_dwio_dwrf_utils ${FMT})
+
+install(TARGETS velox_dwio_dwrf_reader OPTIONAL)
+set(velox_dwio_dwrf_reader_headers
+    BinaryStreamReader.h
+    ColumnReader.h
+    ConstantColumnReader.h
+    DwrfData.h
+    DwrfReader.h
+    EncodingContext.h
+    FlatMapColumnReader.h
+    FlatMapHelper.h
+    ReaderBase.h
+    SelectiveByteRleColumnReader.h
+    SelectiveDwrfReader.h
+    SelectiveFloatingPointColumnReader.h
+    SelectiveIntegerDictionaryColumnReader.h
+    SelectiveIntegerDirectColumnReader.h
+    SelectiveRepeatedColumnReader.h
+    SelectiveStringDictionaryColumnReader.h
+    SelectiveStringDirectColumnReader.h
+    SelectiveStructColumnReader.h
+    SelectiveTimestampColumnReader.h
+    StripeDictionaryCache.h
+    StripeMetadataCache.h
+    StripeReaderBase.h
+    StripeStream.h)
+install(FILES ${velox_dwio_dwrf_reader_headers} DESTINATION "include/velox/dwio/dwrf/reader")

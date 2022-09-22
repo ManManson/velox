@@ -18,3 +18,5 @@ target_link_libraries(velox_tpch_gen velox_memory velox_vector dbgen duckdb)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_tpch_gen OPTIONAL)

@@ -42,3 +42,5 @@ add_library(
   parquet-amalgamation.cpp)
 
 set_property(TARGET duckdb PROPERTY JOB_POOL_COMPILE high_memory_pool)
+
+install(TARGETS duckdb OPTIONAL)

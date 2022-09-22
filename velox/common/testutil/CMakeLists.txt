@@ -18,3 +18,8 @@ target_link_libraries(velox_test_util velox_common_base)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_test_util OPTIONAL)
+set(velox_test_util_headers
+    TestValue.h)
+install(FILES ${velox_test_util_headers} DESTINATION "include/velox/common/testutil")

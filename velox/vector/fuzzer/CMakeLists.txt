@@ -19,3 +19,5 @@ target_link_libraries(velox_vector_fuzzer velox_type velox_vector)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_vector_fuzzer OPTIONAL)

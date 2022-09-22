@@ -19,3 +19,9 @@ target_link_libraries(velox_tpch_connector velox_connector velox_tpch_gen)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_tpch_connector OBJECTS DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
+set(velox_tpch_connector_headers
+    TpchConnector.h
+    TpchConnectorSplit.h)
+install(FILES ${velox_tpch_connector_headers} DESTINATION "include/velox/connectors/tpch")

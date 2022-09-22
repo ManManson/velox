@@ -22,3 +22,10 @@ add_dependencies(velox_dwio_dwrf_utils velox_dwio_dwrf_proto)
 
 target_link_libraries(velox_dwio_dwrf_utils velox_dwio_dwrf_proto velox_type
                       velox_memory)
+
+install(TARGETS velox_dwio_dwrf_utils OPTIONAL)
+set(velox_dwio_dwrf_utils_headers
+    BitIterator.h
+    BufferedWriter.h
+    ProtoUtils.h)
+install(FILES ${velox_dwio_dwrf_utils_headers} DESTINATION "include/velox/dwio/dwrf/utils")

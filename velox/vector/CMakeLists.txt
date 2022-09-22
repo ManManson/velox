@@ -42,3 +42,34 @@ endif()
 if(${VELOX_ENABLE_BENCHMARKS})
   add_subdirectory(benchmarks)
 endif()
+
+install(TARGETS velox_vector OPTIONAL)
+set(velox_vector_headers
+    BaseVector.h
+    BiasVector-inl.h
+    BiasVector.h
+    BuilderTypeUtils.h
+    ComplexVector.h
+    ConstantVector-inl.h
+    ConstantVector.h
+    DecodedVector.h
+    DictionaryVector-inl.h
+    DictionaryVector.h
+    FlatVector-inl.h
+    FlatVector.h
+    FunctionVector.h
+    LazyVector.h
+    NullsBuilder.h
+    RowSerde.h
+    SelectivityVector.h
+    SequenceVector-inl.h
+    SequenceVector.h
+    SimpleVector.h
+    TypeAliases.h
+    VectorEncoding.h
+    VectorPool.h
+    VectorSaver.h
+    VectorStream.h
+    VectorTypeUtils.h
+    VectorUtil.h)
+install(FILES ${velox_vector_headers} DESTINATION "include/velox/vector")

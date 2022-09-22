@@ -22,3 +22,11 @@ target_link_libraries(velox_parse_parser velox_parse_expression velox_type
 add_library(velox_parse_utils TypeResolver.cpp)
 target_link_libraries(velox_parse_utils velox_buffer velox_type velox_vector
                       velox_function_registry)
+
+install(TARGETS velox_parse_expression velox_parse_parser velox_parse_utils OPTIONAL)
+set(velox_parse_headers
+    Expressions.h
+    ExpressionsParser.h
+    IExpr.h
+    TypeResolver.h)
+install(FILES ${velox_parse_headers} DESTINATION "include/velox/parse")

@@ -15,3 +15,10 @@
 add_library(velox_serialization DeserializationRegistry.cpp)
 
 target_link_libraries(velox_serialization velox_exception)
+
+install(TARGETS velox_serialization OPTIONAL)
+set(velox_serialization_headers
+    DeserializationRegistry.h
+    Registry.h
+    Serializable.h)
+install(FILES ${velox_serialization_headers} DESTINATION "include/velox/common/serialization")
