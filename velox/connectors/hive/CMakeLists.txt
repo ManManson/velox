@@ -33,3 +33,16 @@ endif()
 if(${VELOX_ENABLE_BENCHMARKS})
   add_subdirectory(benchmarks)
 endif()
+
+install(TARGETS velox_hive_connector OBJECTS DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
+install(TARGETS velox_hive_partition_function OPTIONAL)
+set(velox_hive_connector_headers
+    FileHandle.h
+    HiveConfig.h
+    HiveConnector.h
+    HiveConnectorSplit.h
+    HiveDataSink.h
+    HivePartitionFunction.h
+    HivePartitionUtil.h
+    PartitionIdGenerator.h)
+install(FILES ${velox_hive_connector_headers} DESTINATION "include/velox/connectors/hive")

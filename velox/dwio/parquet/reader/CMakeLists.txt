@@ -35,3 +35,24 @@ target_link_libraries(
   parquet
   thrift
   ${FMT})
+
+install(TARGETS velox_dwio_native_parquet_reader OPTIONAL)
+set(velox_dwio_native_parquet_reader_headers
+    BooleanColumnReader.h
+    BooleanDecoder.h
+    FloatingPointColumnReader.h
+    IntegerColumnReader.h
+    NestedStructureDecoder.h
+    PageReader.h
+    ParquetColumnReader.h
+    ParquetData.h
+    ParquetReader.h
+    ParquetTypeWithId.h
+    RepeatedColumnReader.h
+    RleBpDataDecoder.h
+    RleBpDecoder.h
+    Statistics.h
+    StringColumnReader.h
+    StringDecoder.h
+    StructColumnReader.h)
+install(FILES ${velox_dwio_native_parquet_reader_headers} DESTINATION "include/velox/dwio/parquet/reader")

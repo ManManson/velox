@@ -18,3 +18,9 @@ target_link_libraries(velox_functions_string INTERFACE velox_exception)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_functions_string OPTIONAL)
+set(velox_functions_string_headers
+    StringCore.h
+    StringImpl.h)
+install(FILES ${velox_functions_string_headers} DESTINATION "include/velox/functions/lib/string")

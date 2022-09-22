@@ -42,3 +42,28 @@ target_link_libraries(
   velox_external_date
   ${Boost_REGEX_LIBRARIES}
   ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_type OPTIONAL)
+set(velox_type_headers
+    Conversions.h
+    Date.h
+    DecimalUtil.h
+    DoubleUtil.h
+    Filter.h
+    IntervalDayTime.h
+    OpaqueCustomTypes.h
+    StringView.h
+    Subfield.h
+    Timestamp.h
+    TimestampConversion.h
+    Tokenizer.h
+    Tree.h
+    Type.h
+    UnscaledLongDecimal.h
+    UnscaledShortDecimal.h
+    Variant.h)
+install(FILES ${velox_type_headers} DESTINATION "include/velox/type")
+
+set(velox_type_tests_headers
+    tests/SubfieldFiltersBuilder.h)
+install(FILES ${velox_type_tests_headers} DESTINATION "include/velox/type/tests")

@@ -47,3 +47,38 @@ add_subdirectory(type_calculation)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_expression_functions velox_expression OPTIONAL)
+set(velox_expression_headers
+    BooleanMix.h
+    CastExpr.h
+    CoalesceExpr.h
+    ComplexViewTypes.h
+    ComplexWriterTypes.h
+    ConjunctExpr.h
+    ConstantExpr.h
+    DecodedArgs.h
+    EvalCtx.h
+    Expr.h
+    ExprCompiler.h
+    ExprToSubfieldFilter.h
+    FieldReference.h
+    FunctionCallToSpecialForm.h
+    FunctionRegistry.h
+    FunctionSignature.h
+    LambdaExpr.h
+    ReverseSignatureBinder.h
+    ScopedVarSetter.h
+    SignatureBinder.h
+    SimpleFunctionAdapter.h
+    SimpleFunctionRegistry.h
+    SpecialForm.h
+    StringWriter.h
+    SwitchExpr.h
+    TryExpr.h
+    UdfTypeResolver.h
+    VariadicView.h
+    VectorFunction.h
+    VectorReaders.h
+    VectorWriters.h)
+install(FILES ${velox_expression_headers} DESTINATION "include/velox/expression")

@@ -13,3 +13,5 @@
 # limitations under the License.
 
 add_subdirectory(fbhive)
+
+install(FILES "TypeParser.h" DESTINATION "include/velox/dwio/type")

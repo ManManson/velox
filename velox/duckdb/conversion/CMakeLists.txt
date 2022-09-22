@@ -24,3 +24,10 @@ target_link_libraries(velox_duckdb_parser velox_duckdb_conversion duckdb
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_duckdb_conversion velox_duckdb_parser OPTIONAL)
+set(velox_duckdb_conversion_headers
+    DuckConversion.h
+    DuckParser.h
+    DuckWrapper.h)
+install(FILES ${velox_duckdb_conversion_headers} DESTINATION "include/velox/duckdb/conversion")

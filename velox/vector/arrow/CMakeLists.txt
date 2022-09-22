@@ -19,3 +19,9 @@ target_link_libraries(velox_arrow_bridge velox_memory velox_type velox_buffer
 if(VELOX_BUILD_TESTING AND VELOX_ENABLE_ARROW)
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_arrow_bridge OPTIONAL)
+set(velox_arrow_bridge_headers
+    Abi.h
+    Bridge.h)
+install(FILES ${velox_arrow_bridge_headers} DESTINATION "include/velox/vector/arrow")

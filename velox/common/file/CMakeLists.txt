@@ -21,3 +21,9 @@ if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
   add_subdirectory(benchmark)
 endif()
+
+install(TARGETS velox_file OPTIONAL)
+set(velox_file_headers
+    File.h
+    FileSystems.h)
+install(FILES ${velox_file_headers} DESTINATION "include/velox/common/file")

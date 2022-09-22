@@ -42,3 +42,36 @@ endif()
 if(${VELOX_ENABLE_BENCHMARKS})
   add_subdirectory(benchmarks)
 endif()
+
+install(TARGETS velox_exception velox_common_base OPTIONAL)
+set(velox_common_base_headers
+    AsyncSource.h
+    BitSet.h
+    BitUtil.h
+    BloomFilter.h
+    CheckedArithmetic.h
+    ClassName.h
+    CoalesceIo.h
+    CompareFlags.h
+    Counters.h
+    Crc.h
+    Exceptions.h
+    Fs.h
+    GTestMacros.h
+    IOUtils.h
+    Macros.h
+    Nulls.h
+    Portability.h
+    RandomUtil.h
+    Range.h
+    RawVector.h
+    RuntimeMetrics.h
+    ScopedLock.h
+    SelectivityInfo.h
+    Semaphore.h
+    SimdUtil-inl.h
+    SimdUtil.h
+    StatsReporter.h
+    SuccinctPrinter.h
+    VeloxException.h)
+install(FILES ${velox_common_base_headers} DESTINATION "include/velox/common/base")

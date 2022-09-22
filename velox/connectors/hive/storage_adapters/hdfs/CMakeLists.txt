@@ -20,3 +20,10 @@ target_link_libraries(velox_hdfs ${FOLLY_WITH_DEPENDENCIES} ${LIBHDFS3})
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_hdfs OPTIONAL)
+set(velox_hdfs_headers
+    HdfsFileSystem.h
+    HdfsReadFile.h
+    HdfsWriteFile.h)
+install(FILES ${velox_hdfs_headers} DESTINATION "include/velox/connectors/hive/storage_adapters/hdfs")

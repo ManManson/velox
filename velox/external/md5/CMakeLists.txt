@@ -15,3 +15,8 @@ add_compile_definitions(FOLLY_HAVE_INT128_T=1)
 target_link_libraries(
         md5
         ${FOLLY_WITH_DEPENDENCIES})
+
+set(md5_headers
+    md5.h)
+install(FILES ${md5_headers} DESTINATION "include/velox/external/md5")
+install(TARGETS md5 OPTIONAL)

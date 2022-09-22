@@ -88,3 +88,5 @@ if(${VELOX_ENABLE_BENCHMARKS})
 endif()
 
 add_subdirectory(registration)
+
+install(TARGETS velox_functions_prestosql_impl OPTIONAL)

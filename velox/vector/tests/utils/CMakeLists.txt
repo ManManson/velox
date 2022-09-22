@@ -13,4 +13,10 @@
 # limitations under the License.
 add_library(velox_vector_test_lib VectorMaker.cpp VectorTestBase.cpp)
 
+set(velox_vector_test_lib_headers
+    VectorMaker-inl.h
+    VectorMaker.h
+    VectorMakerStats.h
+    VectorTestBase.h)
 target_link_libraries(velox_vector_test_lib velox_exec velox_vector)
+install(FILES ${velox_vector_test_lib_headers} DESTINATION "include/velox/vector/tests/utils")

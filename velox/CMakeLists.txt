@@ -75,3 +75,14 @@ endif()
 if(${VELOX_ENABLE_SUBSTRAIT})
   add_subdirectory(substrait)
 endif()
+
+set(velox_external_headers_md5 external/md5/md5.h)
+set(velox_external_headers_utf8proc
+    external/utf8proc/utf8proc.h
+    external/utf8proc/utf8procImpl.h
+    external/utf8proc/utf8proc_data.h)
+set(velox_external_headers_xxhash external/xxhash/xxhash.h)
+install(FILES ${velox_external_headers_md5} DESTINATION "include/velox/external/md5")
+install(FILES ${velox_external_headers_utf8proc} DESTINATION "include/velox/external/utf8proc")
+install(FILES ${velox_external_headers_xxhash} DESTINATION "include/velox/external/xxhash")
+install(FILES ${velox_external_headers_xxhash} DESTINATION "include")

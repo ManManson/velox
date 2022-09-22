@@ -22,3 +22,9 @@ if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
   add_subdirectory(benchmark)
 endif()
+
+install(TARGETS velox_s3fs OPTIONAL)
+set(velox_s3fs_headers
+    S3FileSystem.h
+    S3Util.h)
+install(FILES ${velox_s3fs_headers} DESTINATION "include/velox/connectors/hive/storage_adapters/s3fs")

@@ -15,3 +15,9 @@
 add_library(velox_dwio_common_encryption Encryption.cpp)
 
 target_link_libraries(velox_dwio_common_encryption ${FOLLY_WITH_DEPENDENCIES})
+
+install(TARGETS velox_dwio_common_encryption OPTIONAL)
+set(velox_dwio_common_encryption_headers
+    Encryption.h
+    TestProvider.h)
+install(FILES ${velox_dwio_common_encryption_headers} DESTINATION "include/velox/dwio/common/encryption")

@@ -65,3 +65,5 @@ target_link_libraries(velox_substrait_plan_converter velox_connector
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_substrait_plan_converter OPTIONAL)

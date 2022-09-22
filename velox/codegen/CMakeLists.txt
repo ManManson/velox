@@ -19,3 +19,10 @@ else()
   target_link_libraries(velox_codegen velox_core velox_exec velox_expression
                         glog::glog)
 endif()
+
+install(TARGETS velox_codegen OPTIONAL)
+set(velox_codegen_headers
+    Codegen-Stubs.h
+    Codegen.h
+    platform-support.h)
+install(FILES ${velox_codegen_headers} DESTINATION "include/velox/codegen")

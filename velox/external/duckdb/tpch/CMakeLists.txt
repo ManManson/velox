@@ -10,3 +10,8 @@ add_subdirectory(dbgen)
 
 add_library(tpch_extension STATIC tpch-extension.cpp)
 target_link_libraries(tpch_extension dbgen)
+
+set(tpch_extension_headers
+    include/tpch-extension.hpp)
+install(TARGETS tpch_extension OPTIONAL)
+install(FILES ${tpch_extension_headers} DESTINATION "include/velox/external/duckdb/tpch/include")

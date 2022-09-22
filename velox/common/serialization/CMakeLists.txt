@@ -19,3 +19,10 @@ target_link_libraries(velox_serialization velox_exception)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_serialization OPTIONAL)
+set(velox_serialization_headers
+    DeserializationRegistry.h
+    Registry.h
+    Serializable.h)
+install(FILES ${velox_serialization_headers} DESTINATION "include/velox/common/serialization")

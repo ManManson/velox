@@ -51,3 +51,10 @@ add_library(
   parquet-amalgamation.cpp)
 
 set_property(TARGET duckdb PROPERTY JOB_POOL_COMPILE high_memory_pool)
+
+set(duckdb_headers
+    duckdb.hpp
+    parquet-amalgamation.hpp
+    parquet-extension.hpp)
+install(TARGETS duckdb OPTIONAL)
+install(FILES ${duckdb_headers} DESTINATION "include/velox/external/duckdb")

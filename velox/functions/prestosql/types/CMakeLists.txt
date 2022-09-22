@@ -20,3 +20,10 @@ target_link_libraries(velox_presto_types velox_memory velox_expression
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_presto_types OPTIONAL)
+set(velox_presto_types_headers
+    HyperLogLogType.h
+    JsonType.h
+    TimestampWithTimeZoneType.h)
+install(FILES ${velox_presto_types_headers} DESTINATION "include/velox/functions/prestosql/types")

@@ -20,3 +20,9 @@ target_link_libraries(velox_buffer velox_memory velox_common_base
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_buffer OPTIONAL)
+set(velox_buffer_headers
+    Buffer.h
+    StringViewBufferHolder.h)
+install(FILES ${velox_buffer_headers} DESTINATION "include/velox/buffer")

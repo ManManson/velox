@@ -20,3 +20,8 @@ add_library(velox_window CumeDist.cpp NthValue.cpp Ntile.cpp Rank.cpp
 
 target_link_libraries(velox_window velox_buffer velox_exec
                       ${FOLLY_WITH_DEPENDENCIES})
+
+set(velox_functions_prestosql_window_headers
+    WindowFunctionsRegistration.h)
+install(TARGETS velox_window OPTIONAL)
+install(FILES ${velox_functions_prestosql_window_headers} DESTINATION "include/velox/functions/prestosql/window")

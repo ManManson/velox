@@ -24,3 +24,8 @@ endif()
 if(${VELOX_ENABLE_TPCH_CONNECTOR})
   add_subdirectory(tpch)
 endif()
+
+install(TARGETS velox_connector OPTIONAL)
+set(velox_connector_headers
+    Connector.h)
+install(FILES ${velox_connector_headers} DESTINATION "include/velox/connectors")

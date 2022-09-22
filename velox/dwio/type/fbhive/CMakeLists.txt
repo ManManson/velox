@@ -19,3 +19,9 @@ target_link_libraries(velox_dwio_type_fbhive velox_dwio_common)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_dwio_type_fbhive OPTIONAL)
+set(velox_dwio_type_fbhive_headers
+    HiveTypeParser.h
+    HiveTypeSerializer.h)
+install(FILES ${velox_dwio_type_fbhive_headers} DESTINATION "include/velox/dwio/type/fbhive")

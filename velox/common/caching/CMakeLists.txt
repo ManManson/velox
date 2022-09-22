@@ -33,3 +33,17 @@ target_link_libraries(
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_caching OPTIONAL)
+set(velox_caching_headers
+    AsyncDataCache.h
+    CachedFactory.h
+    FileGroupStats.h
+    FileIds.h
+    ScanTracker.h
+    SimpleLRUCache.h
+    SsdCache.h
+    SsdFile.h
+    SsdFileTracker.h
+    StringIdMap.h)
+install(FILES ${velox_caching_headers} DESTINATION "include/velox/common/caching")

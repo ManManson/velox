@@ -19,3 +19,5 @@ target_link_libraries(velox_presto_serializer velox_vector)
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_presto_serializer OPTIONAL)

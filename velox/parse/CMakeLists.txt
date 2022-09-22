@@ -26,3 +26,14 @@ target_link_libraries(velox_parse_utils velox_buffer velox_type velox_vector
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_parse_expression velox_parse_parser velox_parse_utils OPTIONAL)
+set(velox_parse_headers
+    DuckLogicalOperator.h
+    Expressions.h
+    ExpressionsParser.h
+    IExpr.h
+    PlanNodeIdGenerator.h
+    QueryPlanner.h
+    TypeResolver.h)
+install(FILES ${velox_parse_headers} DESTINATION "include/velox/parse")

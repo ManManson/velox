@@ -59,3 +59,16 @@ endif()
 if(${VELOX_ENABLE_BENCHMARKS})
   add_subdirectory(benchmarks)
 endif()
+
+set(velox_aggregates_headers
+    AggregateNames.h
+    DecimalAggregate.h
+    MapAggregateBase.h
+    PrestoHasher.h
+    RegisterAggregateFunctions.h
+    SimpleNumericAggregate.h
+    SingleValueAccumulator.h
+    SumAggregate.h
+    ValueList.h)
+install(TARGETS velox_aggregates OPTIONAL)
+install(FILES ${velox_aggregates_headers} DESTINATION "include/velox/functions/prestosql/aggregates")

@@ -14,3 +14,9 @@
 
 add_library(velox_dwio_parquet_thrift ParquetThriftTypes.cpp)
 target_link_libraries(velox_dwio_parquet_thrift arrow thrift)
+
+install(TARGETS velox_dwio_parquet_thrift OPTIONAL)
+set(velox_dwio_parquet_thrift_headers
+    ParquetThriftTypes.h
+    ThriftTransport.h)
+install(FILES ${velox_dwio_parquet_thrift_headers} DESTINATION "include/velox/dwio/parquet/thrift")

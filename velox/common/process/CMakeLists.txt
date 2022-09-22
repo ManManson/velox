@@ -20,3 +20,10 @@ target_link_libraries(velox_process velox_flag_definitions
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
+
+install(TARGETS velox_process OPTIONAL)
+set(velox_process_headers
+    ProcessBase.h
+    StackTrace.h
+    TraceContext.h)
+install(FILES ${velox_process_headers} DESTINATION "include/velox/common/process")
