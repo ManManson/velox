@@ -17,6 +17,11 @@ add_library(velox_hive_connector OBJECT HiveConnector.cpp FileHandle.cpp)
 target_link_libraries(velox_hive_connector velox_connector
                       velox_dwio_dwrf_reader velox_dwio_dwrf_writer velox_file)
 
+# Re-package `velox_hive_connector` to a static library, meant to be
+# consumed via `-Wl,--whole-archive`.
+add_library(velox_hive_connector_static_lib STATIC)
+target_link_libraries(velox_hive_connector_static_lib PRIVATE velox_hive_connector)
+
 add_library(velox_hive_partition_function HivePartitionFunction.cpp)
 
 target_link_libraries(velox_hive_partition_function velox_core)
@@ -33,6 +38,7 @@ endif()
 
 install(TARGETS velox_hive_connector OBJECTS DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
 install(TARGETS velox_hive_partition_function OPTIONAL)
+install(TARGETS velox_hive_connector_static_lib OPTIONAL)
 set(velox_hive_connector_headers
     FileHandle.h
     HiveConnector.h
