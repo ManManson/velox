@@ -16,11 +16,15 @@ add_library(velox_tpch_connector OBJECT TpchConnector.cpp)
 
 target_link_libraries(velox_tpch_connector velox_connector velox_tpch_gen)
 
+add_library(velox_tpch_connector_static_lib STATIC)
+target_link_libraries(velox_tpch_connector_static_lib PRIVATE velox_tpch_connector)
+
 if(${VELOX_BUILD_TESTING})
   add_subdirectory(tests)
 endif()
 
 install(TARGETS velox_tpch_connector OBJECTS DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
+install(TARGETS velox_tpch_connector_static_lib OPTIONAL)
 set(velox_tpch_connector_headers
     TpchConnector.h
     TpchConnectorSplit.h)

@@ -14,4 +14,8 @@
 add_library(velox_flag_definitions OBJECT flags.cpp)
 target_link_libraries(velox_flag_definitions gflags)
 
+add_library(velox_flag_definitions_static_lib STATIC)
+target_link_libraries(velox_flag_definitions_static_lib PRIVATE velox_flag_definitions)
+
 install(TARGETS velox_flag_definitions OBJECTS DESTINATION ${CMAKE_INSTALL_LIBDIR} OPTIONAL)
+install(TARGETS velox_flag_definitions_static_lib OPTIONAL)
