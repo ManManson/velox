@@ -25,7 +25,12 @@ DEPENDENCY_DIR=${DEPENDENCY_DIR:-$(pwd)}
 
 function install_aws-sdk-cpp {
   local AWS_REPO_NAME="aws/aws-sdk-cpp"
-  local AWS_SDK_VERSION="1.9.96"
+  #local AWS_SDK_VERSION="1.9.96"
+  # Switch to a more recent AWS SDK version since
+  # this one contains important fixes to be able to build
+  # with openssl 3.0
+  # see https://github.com/aws/aws-sdk-cpp/pull/1986
+  local AWS_SDK_VERSION="1.9.308"
 
   github_checkout $AWS_REPO_NAME $AWS_SDK_VERSION --depth 1 --recurse-submodules
   cmake_install -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS:BOOL=OFF -DMINIMIZE_SIZE:BOOL=ON -DENABLE_TESTING:BOOL=OFF -DBUILD_ONLY:STRING="s3;identity-management" -DCMAKE_INSTALL_PREFIX="${DEPENDENCY_DIR}/install"
@@ -61,7 +66,12 @@ cd "${DEPENDENCY_DIR}" || exit
 # aws-sdk-cpp missing dependencies
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-   yum -y install libxml2-devel libgsasl-devel libuuid-devel
+   LINUX_DISTRIBUTION=$(lsb_release -is)
+   if [[ "$LINUX_DISTRIBUTION" == "Ubuntu" ]]; then
+      apt install -y --no-install-recommends libxml2-dev libgsasl-dev uuid-dev
+   else
+      yum -y install libxml2-devel libgsasl-devel libuuid-devel
+   fi
 fi
 
 if [[ "$OSTYPE" == darwin* ]]; then
